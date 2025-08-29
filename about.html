@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الأكاديمية - أكاديمية محمد رضا عبداهلل</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --transition: all 0.3s ease;
+        }
+        
+        
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+        }
+        
+        .vision-mission {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vision-mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%233e92cc' fill-opacity='0.05' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .vm-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid var(--accent-color);
+        }
+        
+        .vm-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+        
+        .vm-card:hover .vm-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #c02a50 100%);
+        }
+        
+        .vm-card h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .vm-card p {
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+        
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a8f 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .stat-item {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: white;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .team-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            margin-bottom: 30px;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            border-radius: 30px;
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+        
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-info h4 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .team-info p {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f1f1;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #343a40 100%);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+        
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(58, 130, 238, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(58, 130, 238, 0.4);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 60px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .about-content, .vision-mission {
+                padding: 25px;
+            }
+        }
+
+         :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c02a50;
+            border-color: #c02a50;
+            color: white;
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Page specific styles */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        
+        .certificate-card {
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-left: 10px;
+        }
+        
+        .entity-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .entity-logo {
+            max-width: 150px;
+            max-height: 100px;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <img src="logo-fac.png" alt="Logo" height="60" class="d-inline-block align-text-top me-2">
+            <a class="navbar-brand" href="index.html">
+             اكاديمية اكسترا للعلوم الحديثة والمتطورة
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الأكاديمية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">الدورات التدريبية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificates.html">الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="entities.html">الكيانات المتعاقدة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verify.html">التحقق من الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="row align-items-center page-header-content">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold">عن الأكاديمية</h1>
+                    <p class="lead">رحلة في عالم المعرفة والتميز منذ تأسيس الأكاديمية</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="./logo-fac.png" alt="عن الأكاديمية" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">قصة تأسيس الأكاديمية</h2>
+                <p class="lead">تأسست أكاديمية اكسترا للعلوم الحديثة والمتطورة عام 2021 بهدف تقديم تعليم متميز يجمع بين الأصالة والمعاصرة، ويسهم في إعداد جيل من المتعلمين القادرين على مواجهة تحديات العصر.</p>
+                
+                <p>لقد قطعنا شوطاً طويلاً منذ البدايات المتواضعة، حيث بدأنا بفصل واحد وعدد قليل من الطلاب، إلى أن أصبحنا اليوم منارة تعليمية تضم أكثر من 2000 طالب وطالبة، وطاقم تدريسي مكون من أكثر من 50 معلماً ومعلمة من ذوي الخبرة والكفاءة.</p>
+                
+                <p>نفخر بأننا قدمنا على مر السنوات برامج تعليمية وتدريبية متميزة، ساهمت في تخريج كوادر مؤهلة انضمّت إلى سوق العمل محققة نجاحات لافتة، كما أننا حصلنا على عدة جوائز محلية وعربية في مجال التميز التعليمي.</p>
+                
+                <div class="text-center mt-5">
+                    <a href="./courses.html" class="btn btn-primary btn-lg">اكتشف برامجنا التعليمية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="container">
+            <h2 class="section-title text-center">رؤيتنا ورسالتنا</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="vm-card">
+                        <div class="vm-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>رؤيتنا</h3>
+                        <p>أن نكون الوجهة التعليمية الأولى في المنطقة، الرائدة في تقديم تعليم نوعي يجمع بين القيم الأصيلة والابتكار الحديث، لإعداد جيل مبدع قادر على قيادة المستقبل.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vm-card">
+                        <div class="vm-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>رسالتنا</h3>
+                        <p>تقديم تعليم متميز من خلال بيئة محفزة للإبداع والتميز، وتطوير قدرات الطلاب cognitively واجتماعياً ونفسياً، باستخدام أحدث الوسائل التعليمية ومناهج التدريس الحديثة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title text-center text-white">أكاديميتنا في أرقام</h2>
+            <div class="row text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="13">0</div>
+                        <div class="stat-text">سنوات من الخبرة</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2000">0</div>
+                        <div class="stat-text">طالب وطالبة</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-text"> محاضرين</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-text">برنامج تعليمي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">فريق القيادة</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="./omar.jpg" alt="مدير الأكاديمية">
+                        </div>
+                        <div class="team-info">
+                            <h4> مهندس / عمر محمد السويفي </h4>
+                            <p>المؤسس والمدير العام</p>
+                            <div class="team-social">
+                                <a href="https://www.facebook.com/omar.mohamed.elswify"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.linkedin.com/in/omar-elswify/"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/dr.omar.elswify"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://via.placeholder.com/400x300" alt="نائب المدير">
+                        </div>
+                        <div class="team-info">
+                            <h4>أحمد السيد</h4>
+                            <p>نائب المدير للشؤون التعليمية</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://via.placeholder.com/400x300" alt="مدير الشؤون الإدارية">
+                        </div>
+                        <div class="team-info">
+                            <h4>فاطمة محمد</h4>
+                            <p>مديرة الشؤون الإدارية</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                   
+                    <h4 class="fw-bold mb-4">أكاديمية اكسترا للعلوم الحديثة والمتطورة</h4>
+                    <p>منارة للعلم والمعرفة، نقدم تعليماً متميزاً يجمع بين الأصالة والحداثة، ونسعى لإعداد جيل قادر على مواجهة تحديات المستقبل.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">عن الأكاديمية</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-white text-decoration-none">الدورات التدريبية</a></li>
+                        <li class="mb-2"><a href="entities.html" class="text-white text-decoration-none">الكيانات المتعاقدة</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">الشهادات والخدمات</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="certificates.html" class="text-white text-decoration-none">الشهادات</a></li>
+                        <li class="mb-2"><a href="verify.html" class="text-white text-decoration-none">التحقق من الشهادات</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">معلومات الاتصال</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>  الفيوم - الجيزة  </li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +201033965577 - +201553825029</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> training.consulting@extra-cs.online</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/ExtraAcademyModernTrainingModernSciences"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+             <div class="text-center">
+                <p>© 2021    اكاديمية اكسترا للعلوم الحديثة والمتطورة. جميع الحقوق محفوظة.</p>
+                    <p>برمجة وتطوير وادارة <a style="text-decoration: none; color: white; font-weight: bold;" href="https://extra-cs.online/"> شركة اكسترا للتسويق والبرمجيات</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Counter animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let count = 0;
+                const increment = Math.ceil(target / speed);
+                
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        if (count > target) count = target;
+                        counter.innerText = count;
+                        setTimeout(updateCount, 1);
+                    }
+                };
+                
+                // Start counting when element is in viewport
+                const observer = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting) {
+                        updateCount();
+                        observer.disconnect();
+                    }
+                });
+                
+                observer.observe(counter);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدورات التدريبية - أكاديمية محمد رضا عبداهلل</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .category-filter {
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            margin: 5px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .course-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .course-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .course-duration {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .course-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+        
+        .course-description {
+            color: #666;
+            margin-bottom: 20px;
+            min-height: 120px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c02a50;
+            border-color: #c02a50;
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <img src="logo-fac.png" alt="Logo" height="60" class="d-inline-block align-text-top me-2">
+            <a class="navbar-brand" href="index.html">
+             اكاديمية اكسترا للعلوم الحديثة والمتطورة
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الأكاديمية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">الدورات التدريبية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificates.html">الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="entities.html">الكيانات المتعاقدة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="verify.html">التحقق من الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">الدورات التدريبية</h1>
+            <p class="lead">اكتشف مجموعة واسعة من الدورات التدريبية المصممة لتطوير مهاراتك</p>
+        </div>
+    </section>
+
+    <!-- Courses Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Category Filter -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title text-center">تصفية حسب التخصص</h2>
+                    <div class="category-filter text-center">
+                        <button class="btn btn-outline-primary category-btn active" data-filter="all">جميع الدورات</button>
+                        <button class="btn btn-outline-primary category-btn" data-filter="programming">برمجة وتطوير</button>
+                        <button class="btn btn-outline-primary category-btn" data-filter="marketing">تسويق وإدارة أعمال</button>
+                        <button class="btn btn-outline-primary category-btn" data-filter="computer">علوم حاسب</button>
+                        <button class="btn btn-outline-primary category-btn" data-filter="design">تصميم وجرافيك</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="row" id="courses-container">
+                <!-- Programming Courses -->
+                <div class="col-lg-4 col-md-6 course-item" data-category="programming">
+                    <div class="card course-card animate">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تطوير الويب الكامل</text></svg>" class="card-img-top course-img" alt="تطوير الويب الكامل">
+                            <span class="course-category">برمجة</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 12 أسبوع</span>
+                            <h4 class="course-title">تطوير الويب الكامل</h4>
+                            <p class="course-description">دورة شاملة لتعلم تطوير الويب من البداية إلى الاحتراف. تشمل HTML, CSS, JavaScript بالإضافة إلى إطارات العمل الحديثة مثل React وNode.js. بنهاية الدورة ستتمكن من بناء تطبيقات ويب كاملة.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">450 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="programming">
+                    <div class="card course-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تطبيقات Android</text></svg>" class="card-img-top course-img" alt="تطبيقات Android">
+                            <span class="course-category">برمجة</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 10 أسابيع</span>
+                            <h4 class="course-title">تطوير تطبيقات Android</h4>
+                            <p class="course-description">تعلم كيفية بناء تطبيقات Android باستخدام Kotlin وJava. تشمل الدورة تصميم واجهات المستخدم، التعامل مع قواعد البيانات، دمج APIs، ونشر التطبيقات على متجر Google Play.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">400 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="programming">
+                    <div class="card course-card animate delay-2">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>بايثون</text></svg>" class="card-img-top course-img" alt="بايثون">
+                            <span class="course-category">برمجة</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 8 أسابيع</span>
+                            <h4 class="course-title">برمجة Python المتقدمة</h4>
+                            <p class="course-description">دورة متقدمة في لغة Python تغطي المفاهيم المتقدمة مثل البرمجة كائنية التوجه، التعامل مع قواعد البيانات، تطوير واجهات برمجة التطبيقات (APIs)، وتحليل البيانات باستخدام Pandas وNumPy.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">350 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Courses -->
+                <div class="col-lg-4 col-md-6 course-item" data-category="marketing">
+                    <div class="card course-card animate">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>التسويق الرقمي</text></svg>" class="card-img-top course-img" alt="التسويق الرقمي">
+                            <span class="course-category">تسويق</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 9 أسابيع</span>
+                            <h4 class="course-title">إستراتيجيات التسويق الرقمي</h4>
+                            <p class="course-description">دورة شاملة تغطي جميع جوانب التسويق الرقمي بما في ذلك SEO، التسويق عبر وسائل التواصل الاجتماعي، التسويق عبر البريد الإلكتروني، وتحليل البيانات. تعلم كيفية بناء إستراتيجية تسويق ناجحة.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">380 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="marketing">
+                    <div class="card course-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='18' fill='%230a2463' text-anchor='middle'>إدارة المشاريع</text></svg>" class="card-img-top course-img" alt="إدارة المشاريع">
+                            <span class="course-category">إدارة أعمال</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 11 أسبوع</span>
+                            <h4 class="course-title">إدارة المشاريع الاحترافية PMP</h4>
+                            <p class="course-description">إعداد كامل لشهادة PMP مع تغطية منهجية إدارة المشاريع وفقًا لمعايير PMI. تشمل الدورة التخطيط، التنفيذ، المتابعة، والتحكم في المشاريع باستخدام أحدث الأدوات والتقنيات.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">500 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="marketing">
+                    <div class="card course-card animate delay-2">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تحليل الأعمال</text></svg>" class="card-img-top course-img" alt="تحليل الأعمال">
+                            <span class="course-category">إدارة أعمال</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 7 أسابيع</span>
+                            <h4 class="course-title">تحليل الأعمال والتخطيط الاستراتيجي</h4>
+                            <p class="course-description">تعلم كيفية تحليل بيئة الأعمال، تحديد الفرص والتحديات، ووضع الخطط الاستراتيجية الفعالة. تشمل الدورة أدوات التحليل الاستراتيجي ودراسات حالة عملية من عالم الأعمال الحقيقي.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">420 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Science Courses -->
+                <div class="col-lg-4 col-md-6 course-item" data-category="computer">
+                    <div class="card course-card animate">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>أمن المعلومات</text></svg>" class="card-img-top course-img" alt="أمن المعلومات">
+                            <span class="course-category">علوم حاسب</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 10 أسابيع</span>
+                            <h4 class="course-title">أمن المعلومات والاختراق الأخلاقي</h4>
+                            <p class="course-description">دورة متخصصة في أمن المعلومات تغطي أساسيات الحماية، الاختراق الأخلاقي، وأساليب تأمين الشبكات والأنظمة. تشمل تطبيقات عملية على أدوات الأمن السيبراني الشائعة.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">470 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="computer">
+                    <div class="card course-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تعلم الآلة</text></svg>" class="card-img-top course-img" alt="تعلم الآلة">
+                            <span class="course-category">علوم حاسب</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 12 أسبوع</span>
+                            <h4 class="course-title">تعلم الآلة والذكاء الاصطناعي</h4>
+                            <p class="course-description">دورة متقدمة في تعلم الآلة والذكاء الاصطناعي تغطي الخوارزميات الأساسية، معالجة البيانات، النمذجة التنبؤية، وتطبيقات الرؤية الحاسوبية مع أمثلة عملية باستخدام Python ومكتباتها.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">550 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="computer">
+                    <div class="card course-card animate delay-2">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>قواعد البيانات</text></svg>" class="card-img-top course-img" alt="قواعد البيانات">
+                            <span class="course-category">علوم حاسب</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 8 أسابيع</span>
+                            <h4 class="course-title">إدارة قواعد البيانات SQL وNoSQL</h4>
+                            <p class="course-description">تعلم تصميم وإدارة قواعد البيانات العلاقية وغير العلاقية. تشمل الدورة لغة SQL المتقدمة، أداء وقواعد البيانات، ونمذجة البيانات باستخدام MySQL, PostgreSQL وMongoDB.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">390 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Courses -->
+                <div class="col-lg-4 col-md-6 course-item" data-category="design">
+                    <div class="card course-card animate">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تصميم UI/UX</text></svg>" class="card-img-top course-img" alt="تصميم UI/UX">
+                            <span class="course-category">تصميم</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 9 أسابيع</span>
+                            <h4 class="course-title">تصميم تجربة المستخدم UI/UX</h4>
+                            <p class="course-description">دورة شاملة لتعلم أساسيات تصميم تجربة المستخدم وتصميم واجهات المستخدم. تشمل البحث عن المستخدم، التصميم التفاعلي، النماذج الأولية، وأدوات التصميم مثل Figma وAdobe XD.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">400 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="design">
+                    <div class="card course-card animate delay-1">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>تصميم الجرافيك</text></svg>" class="card-img-top course-img" alt="تصميم الجرافيك">
+                            <span class="course-category">تصميم</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 10 أسابيع</span>
+                            <h4 class="course-title">تصميم الجرافيك والمونتاج</h4>
+                            <p class="course-description">تعلم أساسيات التصميم الجرافيكي باستخدام أدوات Adobe مثل Photoshop وIllustrator وInDesign. تشمل الدورة تصميم الشعارات، المواد التسويقية، والمطبوعات بمستوى احترافي.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">430 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 course-item" data-category="design">
+                    <div class="card course-card animate delay-2">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233e92cc' fill-opacity='0.2'/><text x='200' y='100' font-family='Arial' font-size='20' fill='%230a2463' text-anchor='middle'>Motion Graphics</text></svg>" class="card-img-top course-img" alt="Motion Graphics">
+                            <span class="course-category">تصميم</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="course-duration"><i class="far fa-clock me-1"></i> 11 أسبوع</span>
+                            <h4 class="course-title">Motion Graphics باستخدام After Effects</h4>
+                            <p class="course-description">دورة متخصصة في تصميم الرسوم المتحركة والمؤثرات البصرية باستخدام Adobe After Effects. تشمل أساسيات التحريك، المؤثرات الخاصة، والتقنيات المتقدمة لإنشاء محتوى مرئي جذاب.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">480 ر.س</span>
+                                <a href="#" class="btn btn-primary">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                   
+                    <h4 class="fw-bold mb-4">أكاديمية اكسترا للعلوم الحديثة والمتطورة</h4>
+                    <p>منارة للعلم والمعرفة، نقدم تعليماً متميزاً يجمع بين الأصالة والحداثة، ونسعى لإعداد جيل قادر على مواجهة تحديات المستقبل.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">الرئيسية</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">عن الأكاديمية</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-white text-decoration-none">الدورات التدريبية</a></li>
+                        <li class="mb-2"><a href="entities.html" class="text-white text-decoration-none">الكيانات المتعاقدة</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">الشهادات والخدمات</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="certificates.html" class="text-white text-decoration-none">الشهادات</a></li>
+                        <li class="mb-2"><a href="verify.html" class="text-white text-decoration-none">التحقق من الشهادات</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">معلومات الاتصال</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>  الفيوم - الجيزة  </li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +201033965577 - +201553825029</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> training.consulting@extra-cs.online</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/ExtraAcademyModernTrainingModernSciences"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+             <div class="text-center">
+                <p>© 2021    اكاديمية اكسترا للعلوم الحديثة والمتطورة. جميع الحقوق محفوظة.</p>
+                    <p>برمجة وتطوير وادارة <a style="text-decoration: none; color: white; font-weight: bold;" href="https://extra-cs.online/"> شركة اكسترا للتسويق والبرمجيات</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+
+            // Category filtering
+            const filterButtons = document.querySelectorAll('.category-btn');
+            const courseItems = document.querySelectorAll('.course-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    courseItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
